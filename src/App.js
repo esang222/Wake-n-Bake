@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {Routes, Route } from 'react-router-dom';
+import Login from './Login';   // ✅ import from Login.js (not App.js)
+import Signup from './Signup'; // ✅ import from SignUp.js
+import Landing from './Landing'; // If you have Landing.js
+import Cart from './Cart';
+import Checkout from './Checkout';
+import Products from "./Products"; 
+import AdminCheckout from './AdminCheckout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<AdminCheckout />} />         
+      <Route path="/sign-up" element={<Signup />} /> 
+      <Route path="/landing" element={<Landing />} /> 
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/checkout" element={<Checkout />} />
+      <Route path="/products" element={<Products />} />
+    </Routes>
   );
 }
 
